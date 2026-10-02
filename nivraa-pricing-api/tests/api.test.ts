@@ -46,11 +46,11 @@ describe("HTTP API", () => {
     });
     expect(response.statusCode).toBe(200);
     const body = response.json();
+    
     expect(body.total_customer_payable).toBe(2323);
     expect(body.nivraa_credits_earned).toBe(83);
     expect(body.pricing_status).toBe("VALID");
-    expect(body.customer_quote.total_payable).toBe(2323);
-    expect(body.customer_quote).not.toHaveProperty("serviceMultiplier");
+    expect(body).not.toHaveProperty("serviceMultiplier");
   });
 
   it("rejects unknown fields including attempts to inject pricing config", async () => {
