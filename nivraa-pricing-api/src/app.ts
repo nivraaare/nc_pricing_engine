@@ -16,7 +16,7 @@ export const buildApp = async (): Promise<FastifyInstance> => {
     logger: {
       level: process.env.LOG_LEVEL || "info",
       redact: {
-        paths: ["req.headers.x-api-key", "req.headers.x-admin-api-key", "headers.x-api-key", "headers.x-admin-api-key"],
+        paths: ["req.headers["x-api-key"]", "req.headers.x-admin-api-key", "headers.x-api-key", "headers.x-admin-api-key"],
         censor: "[REDACTED]"
       }
     },
